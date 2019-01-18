@@ -71,7 +71,11 @@ function c(arg){
       com.forEach(comment => {
       let q = c('li')
       q.innerText= comment.content
+      let deleteButton = c('button')
+      deleteButton.innerHTML = "X"
+      q.append(deleteButton)
       comments.append(q)
+      
       
     })
     imageCard.append(comments)
@@ -105,15 +109,7 @@ function c(arg){
       let comment = c('li')
       comment.innerHTML = form.value
       data.comments[0].content = comment.innerHTML
-    //   let com = data.comments
-    //   com.forEach(comment => {
-    //   let q = c('li')
-    //   q.innerText= comment.content
-    //   comments.append(q)
-    //   imageCard.append(comments)
-    // })
-      // comments.append(comment)
-      // imageCard.append(comments)
+
       fetch(commentsURL, {
         method: 'POST',
         headers: {
@@ -125,11 +121,16 @@ function c(arg){
           image_id: imageId
         })
       })
+      
       // .then(render) //already rendering
       
       // imageCard.append(comments)
       render()
     })
+
+    // let deleteButton = c('button')
+    // deleteButton.innerHTML = "DELETE"
+    // comment.append(deleteButton)
     // render()
     // console.log(form.submit.value)
   }
