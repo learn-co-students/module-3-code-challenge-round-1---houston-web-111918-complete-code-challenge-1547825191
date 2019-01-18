@@ -90,7 +90,8 @@ function c(arg){
       let comment = c('li')
       comment.innerHTML = form.value
       data.comments[0].content = comment.innerHTML
-
+      comments.append(comment)
+      imageCard.append(comments)
       fetch(commentsURL, {
         method: 'POST',
         headers: {
@@ -102,9 +103,10 @@ function c(arg){
           image_id: imageId
         })
       })
-      comments.append(comment)
+      // .then(render)
+      
       // imageCard.append(comments)
-      render()
+      
     })
     
     // console.log(form.submit.value)
