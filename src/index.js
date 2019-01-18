@@ -75,16 +75,18 @@ const renderCommentsList = (data) => {
   commentForm.addEventListener('submit', e => {
     e.preventDefault()
     // const commentInput = qs('#comment_input')
-    let commentValue = e.target.querySelector('#comment_input').value
+    let commentValue = e.target.querySelector('#comment_input')
 
-    postComment(data, commentValue)
-    commentList.append(renderComment(comment))
+    postComment(data, commentValue.value).then(res => {
+      commentList.append(renderComment(res))
+    })
+    commentValue.value = ''
   })
 
 }
 
 const renderComment = (comment) => {
-  let commentListItem = qs('li')
+  let commentListItem = ce('li')
   commentListItem.innerHTML = `${comment.content} <button>(X)</button>`
 
   let deleteButton = commentListItem.querySelector('button')
