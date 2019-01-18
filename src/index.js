@@ -130,11 +130,12 @@ function c(arg){
           image_id: imageId
         })
       })
+      .then(render)
       
       // .then(render) //already rendering
       
       // imageCard.append(comments)
-      render()
+      // render()
     })
 
     // let deleteButton = c('button')
