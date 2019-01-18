@@ -57,7 +57,7 @@ function c(arg){
     let likeShow = s('#likes')
     likeShow.innerText = likesCount
 
-    
+
     image.src = data.url
     imageTitle.innerHTML = data.name
     imageCard.append(image)
@@ -128,9 +128,9 @@ function c(arg){
       // .then(render) //already rendering
       
       // imageCard.append(comments)
-      
+      render()
     })
-    
+    // render()
     // console.log(form.submit.value)
   }
   
