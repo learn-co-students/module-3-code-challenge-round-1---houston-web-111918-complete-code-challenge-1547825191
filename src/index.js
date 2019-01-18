@@ -68,6 +68,7 @@ function c(arg){
     
     // console.log(data.comments)
     let com = data.comments
+    comments.innerHTML = ''
       com.forEach(comment => {
       let q = c('li')
       q.innerText= comment.content
@@ -81,7 +82,9 @@ function c(arg){
           fetch(`https://randopic.herokuapp.com/comments/${comment.id}`, {
             method: 'delete'
           })
+           .then(render)
         })
+        // render() //DONT DO THIS IT CRASHES WEBPAGE
       
     })
     imageCard.append(comments)
