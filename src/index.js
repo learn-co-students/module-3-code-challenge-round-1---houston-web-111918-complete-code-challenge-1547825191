@@ -46,7 +46,8 @@ function c(arg){
   function renderCard(){
     let form = s('#comment_input')
     let submit = s('#go')
-    // let comments = s('#comments')
+    let comments = s('#comments')
+    // console.log(comments)
 
     let imageTitle = s('#name')
     let imageCard = s('#image_card')
@@ -57,11 +58,25 @@ function c(arg){
     likeShow.innerText = likesCount
 
     
-  
-    
     image.src = data.url
     imageTitle.innerHTML = data.name
     imageCard.append(image)
+
+    
+    // let commentsShow = s('#comments')
+    imageCard.append(comments)
+    
+    // console.log(data.comments)
+    let com = data.comments
+      com.forEach(comment => {
+      let q = c('li')
+      q.innerText= comment.content
+      comments.append(q)
+      
+    })
+    imageCard.append(comments)
+    
+    
     
     
     like.addEventListener('click', () => {
@@ -90,8 +105,15 @@ function c(arg){
       let comment = c('li')
       comment.innerHTML = form.value
       data.comments[0].content = comment.innerHTML
-      comments.append(comment)
-      imageCard.append(comments)
+    //   let com = data.comments
+    //   com.forEach(comment => {
+    //   let q = c('li')
+    //   q.innerText= comment.content
+    //   comments.append(q)
+    //   imageCard.append(comments)
+    // })
+      // comments.append(comment)
+      // imageCard.append(comments)
       fetch(commentsURL, {
         method: 'POST',
         headers: {
@@ -103,7 +125,7 @@ function c(arg){
           image_id: imageId
         })
       })
-      // .then(render)
+      // .then(render) //already rendering
       
       // imageCard.append(comments)
       
