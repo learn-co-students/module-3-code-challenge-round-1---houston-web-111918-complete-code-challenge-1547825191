@@ -34,7 +34,6 @@ function deleteComment(comment){
     method: 'DELETE'
   })
   .then(fetchTheData)
-  .then(render)
 }
 
 function render(){
@@ -91,6 +90,5 @@ commentForm.addEventListener('submit', (e) => {
     body: JSON.stringify(commentData)
   })
   .then(fetchTheData)
-  .then(render)
   e.target.comment_input.value = ''
 })
