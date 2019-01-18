@@ -75,7 +75,13 @@ function c(arg){
       deleteButton.innerHTML = "X"
       q.append(deleteButton)
       comments.append(q)
-      
+      // console.log(comment.id)
+        deleteButton.addEventListener('click', () => {
+
+          fetch(`https://randopic.herokuapp.com/comments/${comment.id}`, {
+            method: 'delete'
+          })
+        })
       
     })
     imageCard.append(comments)
